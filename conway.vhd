@@ -1,0 +1,39 @@
+----------------------------------------------------------------------------
+--
+--  Conway's Game of Life
+--
+--  This file contains all the entities for synthesizing a systolic array
+--  implementation for Conway's Game of Life. This is a cellular automaton
+--  existing on an infinite 2-d hex mesh of cells. Each cell may be in one
+--  of two states: live or dead. The state of a cell is determined by the
+--  state of the eight cells around it. At each "tick" of time, each cell's
+--  state is determined as follows:
+--
+--  Game of Life: Rules
+--      Any live cell with < 2 live neighbors dies of loneliness
+--      Any live cell with > 3 live neighbors dies of overpopulation
+--      Any live cell with exactly 2 or 3 neighbors continues living
+--      Any dead cell with exactly 3 live neighbors is reborn
+--  
+--  Initialize the game by fully pushing in a combination of live and dead
+--  cells into the DataIn signal. This can occur while the Shift signal is
+--  active. Upon each clk tick with Shift active, the current value of
+--  DataIn is shifted into the mesh array. 
+--  The array can also be shifted out of the DataOut signal, shifting out
+--  each clk tick when the Shift signal is enabled. 
+--
+--  Edge Cases:
+--      The outer ring of cells treat all empty borders around them as
+--      dead cells
+--
+--  Limitations:
+--
+--  Entities contained:
+--      sys_array   : generates hex mesh array of the cell
+--                      PEs to play Conway's Game of Life
+--      conway_cell : 
+--
+--  Revision History:
+--     03/7/2019  Sundar Pandian       Initial version
+--
+----------------------------------------------------------------------------
